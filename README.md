@@ -14,5 +14,6 @@ Features:
 - Keyboard shortcuts
 
 Live Demo:
-https://JainaRishika.github.io/Smart_ToDo/
+https://rishikas-smart-to-do.netlify.app/
+
 
