@@ -1,0 +1,239 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(-45deg, #667eea, #764ba2, #6b8dd6, #8e44ad);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+}
+
+body.dark input[type="date"] {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+body.dark input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.8;
+}
+
+body.dark input,
+body.dark select {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.app {
+    width: 650px;
+    padding: 30px;
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input, select {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    color: white;
+}
+
+input::placeholder {
+    color: #eee;
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+}
+
+select option {
+    color: black;
+    background: white;
+}
+
+body.dark select option {
+    background: #1e1e1e;
+    color: white;
+}
+
+button {
+    background: rgba(255,255,255,0.25);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+button:hover {
+    background: rgba(255,255,255,0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(255,255,255,0.6);
+}
+
+body, .app, li, button, input, select {
+    transition: all 0.4s ease-in-out;
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+/* 🔥 FIXED FILTER BUTTONS */
+.filters button {
+    background: rgba(255,255,255,0.25);
+    color: white;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* 🔥 FIXED TASK ITEM DESIGN */
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+
+    color: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    animation: slideFade 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    opacity: 0;
+}
+
+li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(255,255,255,0.3);
+}
+
+li.completed {
+    opacity: 0.6;
+}
+
+li.completed strong {
+    text-decoration: line-through !important;
+    color: #aaa !important;
+}
+
+.priority-High {
+    border-left: 4px solid #ff4d4d;
+    box-shadow: 0 0 10px #ff4d4d;
+}
+
+.priority-Medium {
+    border-left: 4px solid #ffaa00;
+    box-shadow: 0 0 10px #ffaa00;
+}
+
+.priority-Low {
+    border-left: 4px solid #00ff88;
+    box-shadow: 0 0 10px #00ff88;
+}
+
+.analytics {
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    font-size: 14px;
+}
+
+.auth-container {
+    width: 350px;
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    background: rgba(255,255,255,0.1);
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.auth-container button {
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* 🔥 SMOOTH DARK MODE */
+body.dark {
+    background: linear-gradient(-45deg, #1e1e2f, #2c2c54, #121212, #2a0845);
+}
+
+body.dark .app {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+body.dark li {
+    background: rgba(0,0,0,0.5);
+    color: white;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.4);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.7);
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}

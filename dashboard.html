@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Todo Pro</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="cssFolders/style.css">
+    <link rel="stylesheet" href="cssFolders/dark-theme.css">
+    <link rel="stylesheet" href="cssFolders/animations.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+    <header>
+        <h1>Smart Todo Pro</h1>
+
+        <div class="user-info">
+            <span id="welcomeUser"></span>
+            <button id="themeToggle">🌙</button>
+            <button onclick="Auth.logout()">Logout</button>
+        </div>
+    </header>
+
+    <!-- INPUT SECTION -->
+    <div class="task-input">
+        <input type="text" id="taskInput" placeholder="Enter your task">
+        <input type="date" id="dueDate">
+        <select id="priority">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+        <button id="addBtn">Add</button>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filters">
+        <button data-filter="all">All</button>
+        <button data-filter="completed">Completed</button>
+        <button data-filter="pending">Pending</button>
+        <button data-filter="high">High</button>
+    </div>
+
+    <!-- TASK LIST -->
+    <ul id="taskList"></ul>
+
+    <!-- ANALYTICS -->
+    <div class="analytics">
+        <div id="taskCounter"></div>
+        <div id="completionRate"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <button id="clearAll">Clear All</button>
+    </footer>
+
+</div>
+
+<!-- CONFETTI CDN -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<!-- JS ORDER IMPORTANT -->
+<script src="jsFolders/auth.js"></script>
+<script src="jsFolders/storage.js"></script>
+<script src="jsFolders/filters.js"></script>
+<script src="jsFolders/ui.js"></script>
+<script src="jsFolders/analytics.js"></script>
+<script src="jsFolders/shortcuts.js"></script>
+<script src="jsFolders/main.js"></script>
+
+<!-- AUTH CHECK -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        Auth.checkAuth();
+        document.getElementById("welcomeUser").innerText =
+            "Welcome, " + Auth.getUser() + " 👋";
+    });
+</script>
+
+</body>
+</html>

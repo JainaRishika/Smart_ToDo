@@ -1,0 +1,44 @@
+/* ✨ Task Entry Animation */
+li {
+    animation: slideFade 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    opacity: 0;
+    transform-origin: top;
+}
+
+@keyframes slideFade {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px) scale(0.96);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(4px) scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ✨ Smooth Delete Animation */
+.fade-out {
+    animation: slideOut 0.35s ease forwards;
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(40px) scale(0.95);
+    }
+}
+
+/* ✨ Dark Mode Glow Interaction */
+body.dark li:hover {
+    box-shadow: 0 0 20px rgba(0,255,255,0.25),
+                0 0 40px rgba(0,255,255,0.15);
+    transform: translateY(-3px);
+}
