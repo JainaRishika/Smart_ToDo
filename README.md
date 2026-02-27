@@ -14,4 +14,5 @@ Features:
 - Keyboard shortcuts
 
 Live Demo:
-https://yourusername.github.io/smart-todo-pro/
+https://JainaRishika.github.io/Smart_ToDo/
+
